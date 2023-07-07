@@ -1,6 +1,6 @@
 {
   "name": "trt-downloader",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "application to read and download trts data",
   "main": "./out/main/index.js",
   "author": "julioco.dev",
