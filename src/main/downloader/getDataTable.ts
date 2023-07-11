@@ -28,7 +28,10 @@ export async function getData() {
   })
   const page = await browser.newPage()
 
-  await page.goto('https://servicos.sinceti.net.br')
+  await page.goto('https://servicos.sinceti.net.br', {
+    timeout: 0,
+    waitUntil: 'networkidle0',
+  })
   await page.setViewport({ width: 1280, height: 1024 })
   await page.type('input[name="cpf"]', process.env.USER_CPF || '')
   await page.type('input[name="senha"]', process.env.USER_PASSWORD || '')

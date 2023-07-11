@@ -21,6 +21,9 @@ export function App() {
           </button>
         </div>
       </div>
+      <p className="text-base text-neutral-200 absolute bottom-6">
+        Desenvolvido com <span className="font-bold">❤️</span> por Julio
+      </p>
     </main>
   )
 }
