@@ -1,6 +1,6 @@
 {
   "name": "trt-downloader",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "application to read and download trts data",
   "main": "./out/main/index.js",
   "author": "julioco.dev",
@@ -23,6 +23,7 @@
     "dotenv": "^16.3.1",
     "lucide-react": "^0.258.0",
     "puppeteer": "^20.8.0",
+    "puppeteer-core": "^20.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "xlsx": "^0.18.5"
@@ -32,6 +33,7 @@
     "@electron/notarize": "^1.2.3",
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/node": "^18.16.16",
+    "@types/puppeteer-core": "^7.0.4",
     "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",
     "@typescript-eslint/eslint-plugin": "^5.59.8",

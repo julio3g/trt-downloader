@@ -1,21 +1,37 @@
 import 'dotenv/config'
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
 import { exportToJson } from './exports/exportToJson'
 import { exportToXlsx } from './exports/exportToXlsx'
 import { extractTableData } from './extracts/extractTableData'
 import { extractTableDataForXlsx } from './extracts/extractTableDataForXlsx'
 
+type SupportedPlatform = 'win32' | 'linux' | 'darwin'
+
+const chromeExecPaths: Record<SupportedPlatform, string> = {
+  win32: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  linux: '/usr/bin/google-chrome',
+  darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+}
+
+function getChromeExecPath(platform: NodeJS.Platform): string {
+  if (platform in chromeExecPaths) {
+    return chromeExecPaths[platform as SupportedPlatform]
+  } else {
+    throw new Error(`Unsupported platform: ${platform}`)
+  }
+}
+
 export async function getData() {
-  const browser = await puppeteer.launch({ headless: false })
+  const browser = await puppeteer.launch({
+    headless: false,
+    executablePath: getChromeExecPath(process.platform),
+  })
   const page = await browser.newPage()
 
   await page.goto('https://servicos.sinceti.net.br')
   await page.setViewport({ width: 1280, height: 1024 })
-  await page.type('input[name="cpf"]', process.env.ELECTRON_USER_CPF || '')
-  await page.type(
-    'input[name="senha"]',
-    process.env.ELECTRON_USER_PASSWORD || '',
-  )
+  await page.type('input[name="cpf"]', process.env.USER_CPF || '')
+  await page.type('input[name="senha"]', process.env.USER_PASSWORD || '')
 
   await page
     .waitForSelector('a#mostrarARTsTodas')
