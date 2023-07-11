@@ -4,8 +4,12 @@ import { resolve } from 'path'
 import tailwindcss from 'tailwindcss'
 
 export default defineConfig({
-  main: { plugins: [externalizeDepsPlugin()] },
-  preload: { plugins: [externalizeDepsPlugin()] },
+  main: {
+    plugins: [externalizeDepsPlugin()],
+  },
+  preload: {
+    plugins: [externalizeDepsPlugin()],
+  },
   renderer: {
     css: {
       postcss: {
@@ -16,7 +20,11 @@ export default defineConfig({
         ],
       },
     },
-    resolve: { alias: { '@renderer': resolve('src/renderer/src') } },
+    resolve: {
+      alias: {
+        '@renderer': resolve('src/renderer/src'),
+      },
+    },
     plugins: [react()],
   },
 })
