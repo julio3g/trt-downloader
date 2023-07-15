@@ -8,7 +8,9 @@ import { extractTableDataForXlsx } from './extracts/extractTableDataForXlsx'
 type SupportedPlatform = 'win32' | 'linux' | 'darwin'
 
 const chromeExecPaths: Record<SupportedPlatform, string> = {
-  win32: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  win32:
+    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe' ||
+    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
   linux: '/usr/bin/google-chrome',
   darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
 }
@@ -33,8 +35,11 @@ export async function getData() {
     waitUntil: 'networkidle0',
   })
   await page.setViewport({ width: 1280, height: 1024 })
-  await page.type('input[name="cpf"]', process.env.USER_CPF || '')
-  await page.type('input[name="senha"]', process.env.USER_PASSWORD || '')
+  await page.type('input[name="cpf"]', import.meta.env.MAIN_VITE_USER_CPF || '')
+  await page.type(
+    'input[name="senha"]',
+    import.meta.env.MAIN_VITE_USER_PASSWORD || '',
+  )
 
   await page
     .waitForSelector('a#mostrarARTsTodas')

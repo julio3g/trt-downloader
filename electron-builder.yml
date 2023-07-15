@@ -1,5 +1,5 @@
 appId: com.julioco.trt-downloader
-productName: trt-downloader
+productName: TRT Downloader App
 directories:
   buildResources: build
 files:
@@ -13,7 +13,7 @@ asarUnpack:
   - resources/**
 afterSign: build/notarize.js
 win:
-  executableName: trt-downloader
+  executableName: TRT Downloader App
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}

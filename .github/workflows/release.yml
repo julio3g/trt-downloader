@@ -15,6 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Insert Environment Variables
+        env:
+          credentials: ${{ secrets.MAIN_VITE_USER_CPF }}
+          credentials: ${{ secrets.MAIN_VITE_USER_PASSWORD }}
+
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v3
         with:

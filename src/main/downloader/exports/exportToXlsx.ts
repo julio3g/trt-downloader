@@ -1,5 +1,5 @@
-import { writeFileSync } from 'fs'
-import path from 'node:path'
+import { writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 import xlsx from 'xlsx'
 
 export function exportToXlsx(data: string[][], filename: string) {
@@ -9,6 +9,6 @@ export function exportToXlsx(data: string[][], filename: string) {
 
   const excelBuffer = xlsx.write(workbook, { bookType: 'xlsx', type: 'buffer' })
   // writeFileSync(filename, excelBuffer)
-  writeFileSync(path.join(__dirname, filename), excelBuffer)
+  writeFileSync(join(__dirname, filename), excelBuffer)
   // console.log(`Dados exportados para o arquivo ${filename}`)
 }

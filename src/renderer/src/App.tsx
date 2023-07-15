@@ -5,7 +5,6 @@ import './styles/global.css'
 export function App() {
   const handleButtonClick = useCallback(async () => {
     await window.api.getData()
-    window.api.saveFile('dados.xlsx')
   }, [])
 
   return (
@@ -20,9 +19,15 @@ export function App() {
             <RotateCw className="group-hover:rotate-180 duration-300" />
           </button>
         </div>
+        <button
+          className="p-4 rounded-lg bg-purple-400 hover:bg-purple-500 duration-150 text-lg"
+          onClick={() => window.api.saveFile('dados.xlsx')}
+        >
+          Baixar
+        </button>
       </div>
       <p className="text-base text-neutral-200 absolute bottom-6">
-        Desenvolvido com <span className="font-bold">❤️</span> por Julio
+        Desenvolvido com <span className="font-bold">❤️</span>
       </p>
     </main>
   )
