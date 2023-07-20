@@ -38,7 +38,7 @@ export async function getData() {
   await page.type('input[name="cpf"]', import.meta.env.MAIN_VITE_USER_CPF || '')
   await page.type(
     'input[name="senha"]',
-    import.meta.env.MAIN_VITE_USER_PASSWORD || '',
+    import.meta.env.MAIN_VITE_USER_PASSWORD || ''
   )
 
   await page

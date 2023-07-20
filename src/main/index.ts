@@ -3,6 +3,7 @@ import { BrowserWindow, app, shell } from 'electron'
 import { join } from 'node:path'
 
 import './ipc'
+import './store'
 import { createTray } from './tray'
 
 function createWindow(): void {

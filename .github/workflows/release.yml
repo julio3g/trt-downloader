@@ -17,8 +17,8 @@ jobs:
 
       - name: Insert Environment Variables
         env:
-          credentials: ${{ secrets.MAIN_VITE_USER_CPF }}
-          credentials: ${{ secrets.MAIN_VITE_USER_PASSWORD }}
+          MAIN_VITE_USER_PASSWORD: ${{ secrets.MAIN_VITE_USER_CPF }}
+          MAIN_VITE_USER_PASSWORD: ${{ secrets.MAIN_VITE_USER_PASSWORD }}
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v3

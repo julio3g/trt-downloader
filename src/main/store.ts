@@ -1,7 +1,5 @@
 import Store from 'electron-store'
 
-export const store = new Store({
-  defaults: {},
-})
+export const store = new Store()
 
 console.log(store.path)

@@ -1,6 +1,6 @@
 import { RotateCw } from 'lucide-react'
 import { useCallback } from 'react'
-import './styles/global.css'
+import './global.css'
 
 export function App() {
   const handleButtonClick = useCallback(async () => {

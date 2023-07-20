@@ -32,3 +32,13 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
+
+"build": {
+"extraResources": [
+{
+"from": "xlsx",
+"to": "xlsx",
+"filter": ["**/*"]
+}
+]
+},
