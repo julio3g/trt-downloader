@@ -31,10 +31,11 @@
   "dependencies": {
     "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^1.0.2",
+    "conf": "^10.2.0",
     "dotenv": "^16.3.1",
     "electron-store": "^8.1.0",
     "lucide-react": "^0.258.0",
-    "puppeteer-core": "^20.8.0",
+    "puppeteer": "^25.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "xlsx": "^0.18.5"
@@ -44,7 +45,6 @@
     "@electron/notarize": "^1.2.3",
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/node": "^18.16.16",
-    "@types/puppeteer-core": "^7.0.4",
     "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",
     "@vitejs/plugin-react": "^4.0.0",
