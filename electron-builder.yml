@@ -14,6 +14,8 @@ asarUnpack:
   - '**/node_modules/puppeteer/**'
   - '**/node_modules/@puppeteer/**'
 afterSign: build/notarize.js
+publish:
+  provider: github
 win:
   executableName: TRT Downloader App
 nsis:
