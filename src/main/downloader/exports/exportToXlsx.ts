@@ -1,3 +1,4 @@
+import { app } from 'electron'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import xlsx from 'xlsx'
@@ -8,7 +9,5 @@ export function exportToXlsx(data: string[][], filename: string) {
   xlsx.utils.book_append_sheet(workbook, worksheet, 'Dados')
 
   const excelBuffer = xlsx.write(workbook, { bookType: 'xlsx', type: 'buffer' })
-  // writeFileSync(filename, excelBuffer)
-  writeFileSync(join(__dirname, filename), excelBuffer)
-  // console.log(`Dados exportados para o arquivo ${filename}`)
+  writeFileSync(join(app.getPath('temp'), filename), excelBuffer)
 }
