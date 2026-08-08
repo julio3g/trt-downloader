@@ -6,8 +6,16 @@ import './ipc'
 import './store'
 import { createTray } from './tray'
 
+let mainWindow: BrowserWindow | null = null
+
+const gotSingleInstanceLock = app.requestSingleInstanceLock()
+
+if (!gotSingleInstanceLock) {
+  app.quit()
+}
+
 function createWindow(): void {
-  const mainWindow = new BrowserWindow({
+  const window = new BrowserWindow({
     width: 900,
     height: 670,
     show: false,
@@ -27,19 +35,28 @@ function createWindow(): void {
     },
   })
 
-  createTray(mainWindow)
+  mainWindow = window
 
-  mainWindow.on('ready-to-show', () => mainWindow.show())
+  createTray(window)
 
-  mainWindow.webContents.setWindowOpenHandler((details) => {
+  window.on('ready-to-show', () => window.show())
+
+  window.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }
   })
 
   if (is.dev && process.env.ELECTRON_RENDERER_URL)
-    mainWindow.loadURL(process.env.ELECTRON_RENDERER_URL)
-  else mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+    window.loadURL(process.env.ELECTRON_RENDERER_URL)
+  else window.loadFile(join(__dirname, '../renderer/index.html'))
 }
+
+app.on('second-instance', () => {
+  if (!mainWindow) return
+  if (mainWindow.isMinimized()) mainWindow.restore()
+  mainWindow.show()
+  mainWindow.focus()
+})
 
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron')
