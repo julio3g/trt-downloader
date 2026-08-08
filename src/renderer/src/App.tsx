@@ -4,7 +4,11 @@ import './global.css'
 
 export function App() {
   const handleButtonClick = useCallback(async () => {
-    await window.api.getData()
+    try {
+      await window.api.getData()
+    } catch (err) {
+      console.error(err)
+    }
   }, [])
 
   return (
