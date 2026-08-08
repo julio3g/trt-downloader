@@ -5,6 +5,10 @@
   "main": "./out/main/index.js",
   "author": "julioco.dev",
   "homepage": "https://julioco.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julio3g/trt-downloader.git"
+  },
   "build": {
     "extraResources": [
       {
