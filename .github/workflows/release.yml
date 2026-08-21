@@ -63,6 +63,6 @@ jobs:
 
       - name: Package and publish (Linux)
         if: matrix.os == 'ubuntu-latest'
-        run: pnpm exec electron-builder --linux --config --publish always
+        run: pnpm exec electron-builder --linux AppImage deb rpm pacman freebsd --config --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

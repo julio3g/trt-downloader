@@ -2,6 +2,11 @@ appId: com.julioco.trt-downloader
 productName: TRT Downloader App
 directories:
   buildResources: build
+extraResources:
+  - from: xlsx
+    to: xlsx
+    filter:
+      - '**/*'
 files:
   - '!**/.vscode/*'
   - '!src/*'

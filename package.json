@@ -1,6 +1,6 @@
 {
   "name": "trt-downloader",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "application to read and download trts data",
   "main": "./out/main/index.js",
   "author": "julioco.dev",
@@ -8,17 +8,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/julio3g/trt-downloader.git"
-  },
-  "build": {
-    "extraResources": [
-      {
-        "from": "xlsx",
-        "to": "xlsx",
-        "filter": [
-          "**/*"
-        ]
-      }
-    ]
   },
   "scripts": {
     "format": "prettier --write .",
